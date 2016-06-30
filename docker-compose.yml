@@ -1,0 +1,18 @@
+web:
+  image: fossology/fossology
+  environment:
+  - FOSSOLOGY_DB_HOST=db
+  - FOSSOLOGY_DB_NAME=fossology
+  - FOSSOLOGY_DB_USER=fossy
+  - FOSSOLOGY_DB_PASSWORD=fossy
+  ports:
+  - 8081:80
+  links:
+  - db
+db:
+  image: postgres
+  environment:
+  - POSTGRES_DB=fossology
+  - POSTGRES_USER=fossy
+  - POSTGRES_PASSWORD=fossy
+  - POSTGRES_INITDB_ARGS='-E SQL_ASCII'

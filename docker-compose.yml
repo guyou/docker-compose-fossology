@@ -11,6 +11,8 @@ web:
   - db
 db:
   image: postgres
+  volumes:
+    - ./volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data
   environment:
   - POSTGRES_DB=fossology
   - POSTGRES_USER=fossy
